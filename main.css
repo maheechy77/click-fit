@@ -4,9 +4,11 @@
 
 .headline {
     overflow: hidden;
-    width:100%;
+    max-width:100%;
     height: 100vh;
-    background-size: cover;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("./images/desktop-1920x1080.jpg");
     display: flex;
     flex-direction: column;
@@ -28,7 +30,7 @@
     color:#0086fb;
 }
 
-.headlineNav nav ul {
+.headlineNav .desktop_navbar {
     display: flex;
     align-items: center;
     justify-content: space-between; 
@@ -267,4 +269,199 @@
 
 .photoUpload h3 {
   font-weight: 800;
+}
+
+.headlineNav .mobile_navbar{
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+
+  .headlineNav .mobile_navbar,
+  .headlineNav .mobile_navbar input[type="checkbox"],
+  .headlineNav .mobile_navbar .hamburger-lines {
+    display: block;
+    cursor: pointer;
+  }
+
+  .headlineNav .desktop_navbar{
+    display: none;
+  }
+
+  .headlineNav .mobile_navbar input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+    opacity: 0;
+  }
+
+  .headlineNav .mobile_navbar .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .headlineNav .mobile_navbar .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .headlineNav .mobile_navbar .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .headlineNav .mobile_navbar .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .headlineNav .mobile_navbar .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .headlineNav .mobile_navbar .menu-items {
+    position: absolute;
+    padding-top: 100px;
+    background: black;
+    height: 100vh;
+    max-width: 300px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    top: 0px;
+    right: -225px;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 5px 0px 10px 0px #aaa;
+  }
+
+  .headlineNav .mobile_navbar .menu-items li {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .headlineNav .mobile_navbar input[type="checkbox"]:checked ~ .menu-items {
+    right: 0px;
+  }
+
+  .headlineNav .mobile_navbar input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(35deg);
+  }
+
+  .headlineNav .mobile_navbar input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .headlineNav .mobile_navbar input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-35deg);
+  }
+
+  .headlineNav h2{
+    font-size: 28px;
+    font-weight: 800;
+    cursor: pointer;
+    color:#0086fb;
+}
+
+  .headlineText p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5rem;
+    width: fit-content;
+  }
+
+  .headlineText button {
+    padding: 4px 9px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #003768, #0086fb) 1;
+  }
+
+  .headlineText button:hover{
+    padding: 6px 11px;
+    font-size: 18px;
+  }
+
+  .products h1{
+    font-size: 24px;
+  }
+
+  .productsList div h3{
+    font-size: 20px;
+  }
+
+  .productsList{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product{
+    margin:12px 0;
+  }
+
+  .ajaxDataList{
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 815px) and (min-width: 651px) {
+  .headlineNav .desktop_navbar{
+    display: none;
+  }
+
+  .headlineText p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 2.5rem;
+    width: fit-content;
+  }
+
+  .headlineText button {
+    padding: 8px 18px;
+    font-size: 24px;
+    font-weight: 600;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #003768, #0086fb) 1;
+  }
+
+  .headlineText button:hover{
+    padding: 10px 20px;
+    font-size: 26px;
+  }
+
+
+  .products h1{
+    font-size: 36px;
+  }
+
+  .productsList div h3{
+    font-size: 24px;
+  }
+
+  .productsList{
+    flex-wrap: wrap;
+  }
+  .product{
+    margin:12px 16px;
+  }
 }

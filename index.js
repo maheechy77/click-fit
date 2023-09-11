@@ -16,7 +16,7 @@ var upload = multer({ storage: storage })
 app.use(express.static(__dirname + '/'));
 app.use('/upload_images', express.static('upload_images'));
 
-app.post('/profile-upload-single', git init.single('image'), function (req, res, next) {
+app.post('/profile-upload-single', upload.single('image'), function (req, res, next) {
   console.log(JSON.stringify(req.file))
   var response = '<a href="/">Home</a><br>'
   response += "Files uploaded successfully.<br>"
